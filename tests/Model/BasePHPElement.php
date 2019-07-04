@@ -20,11 +20,12 @@ abstract class BasePHPElement
     abstract public function readObjectFromReflection($object);
 
     /**
-     * @param mixed $node
+     * @param mixed $mixed_1
+     * @param mixed $mixed_2
      *
      * @return mixed
      */
-    abstract public function readObjectFromStubNode($node);
+    abstract public function readObjectFromStubNode($mixed_1, $mixed_2 = null);
 
     abstract public function readMutedProblems($jsonData);
 
