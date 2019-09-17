@@ -1146,6 +1146,7 @@ class DOMNodeList implements Traversable, Countable {
 	 * @link https://php.net/manual/en/domnodelist.item.php
 	 * @param int $index <p>
 	 * Index of the node into the collection.
+	 * The range of valid child node indices is 0 to length - 1 inclusive.
 	 * </p>
 	 * @return DOMNode|null The node at the indexth position in the
 	 * DOMNodeList, or &null; if that is not a valid
@@ -1712,12 +1713,12 @@ class DOMElement extends DOMNode  {
     /**
      * Creates a new DOMElement object
      * @link https://php.net/manual/en/domelement.construct.php
-     * @param $name string The tag name of the element. When also passing in namespaceURI, the element name may take a prefix to be associated with the URI.
-     * @param $value string [optional] The value of the element.
-     * @param $uri string [optional] A namespace URI to create the element within a specific namespace.
+     * @param string $name The tag name of the element. When also passing in namespaceURI, the element name may take a prefix to be associated with the URI.
+     * @param string|null $value [optional] The value of the element.
+     * @param string|null $uri  [optional] A namespace URI to create the element within a specific namespace.
      * @since 5.0
      */
-    public function __construct ($name, $value, $uri) {}
+    public function __construct ($name, $value = null, $uri = null) {}
 
     /**
      * Adds a new child before a reference node

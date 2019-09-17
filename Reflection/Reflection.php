@@ -58,6 +58,7 @@ interface Reflector  {
 	 * @link https://php.net/manual/en/reflector.export.php
 	 * @return string
 	 * @since 5.0
+	 * @deprecated 7.4
 	 */
 	static function export ();
 
@@ -1597,6 +1598,29 @@ class ReflectionProperty implements Reflector {
 	 */
 	public function setAccessible ($accessible) {}
 
+	/**
+	 * Gets property type
+	 * @return ReflectionType|null
+	 * @since 7.4.0
+	 */
+	public function getType() {}
+
+	/**
+	 * Checks if property has type
+	 * @return bool
+	 * @since 7.4.0
+	 */
+	public function hasType() {}
+
+	/**
+	 * Checks if property is initialized
+	 * @param object $object [optional]<p>
+	 * If the property is non-static an object must be provided.
+	 * </p>
+	 * @return bool
+	 * @since 7.4.0
+	 */
+	public function isInitialized ($object) {}
 }
 
 /**
@@ -1999,15 +2023,6 @@ class ReflectionType
 	{
 	}
 
-	/**
-	 * Get type of the parameter.
-	 * @return string Returns the type of the parameter.
-	 * @since 7.1.0
-	 */
-	public function getName()
-	{
-	}
-
     private final function __clone() {}
 
 }
@@ -2119,8 +2134,15 @@ class ReflectionClassConstant implements Reflector {
 /**
  * @since 7.1
  */
-class ReflectionNamedType extends ReflectionType{
-
+class ReflectionNamedType extends ReflectionType
+{
+	/**
+	 * Get the text of the type hint.
+	 * @return string Returns the text of the type hint.
+	 */
+	public function getName()
+	{
+	}
 }
 
 /**
