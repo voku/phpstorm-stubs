@@ -236,6 +236,8 @@ class mysqli  {
 	 * @param string $database [optional]
 	 * @param int $port [optional]
 	 * @param string $socket [optional]
+     *
+     * @return mysqli|null|false
 	 */
 	public function connect ($hostname = null, $username = null, $password = null, $database = null, $port = null, $socket = null) {}
 
@@ -301,14 +303,14 @@ class mysqli  {
 	/**
 	 * Get result of SHOW WARNINGS
 	 * @link https://php.net/manual/en/mysqli.get-warnings.php
-	 * @return mysqli_warning
+	 * @return mysqli_warning|false
 	 */
 	public function get_warnings () {}
 
 	/**
 	 * Initializes MySQLi and returns a resource for use with mysqli_real_connect()
 	 * @link https://php.net/manual/en/mysqli.init.php
-	 * @return mysqli an object.
+	 * @return mysqli|false
 	 */
 	public function init () {}
 
